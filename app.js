@@ -12,9 +12,9 @@ app.use(express.static("public")); // to use css and other things
 app.get("/",function(req,res){
     res.render('home', {});
 })
-
-app.get("/",function(req,res){
-    res.sendFile(__dirname + "/index.html");
+app.get("/new",function(req,res){
+    res.render('newblog', {});
 })
+
 
 app.listen(3000,function(){console.log("Server running at port 3000!")});
