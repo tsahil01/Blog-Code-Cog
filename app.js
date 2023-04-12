@@ -15,6 +15,9 @@ app.get("/",function(req,res){
 app.get("/new",function(req,res){
     res.render('newblog', {});
 })
+app.get("/blogname",function(req,res){
+    res.render('blog', {});
+})
 
 
 app.listen(3000,function(){console.log("Server running at port 3000!")});
