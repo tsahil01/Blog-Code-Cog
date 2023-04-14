@@ -12,7 +12,17 @@ app.use(express.static("public")); // to use css and other things
 
 app.get("/",function(req,res){
     let details = data.getData();
-    res.render('home', {detailsObejct: details, headingTitle:"Hell Yeah",blogContent:"My Name is Sahil Tiwaskar"});
+    res.render('home', {detailsObejct: details});
+    
+    app.post("/",function(req,res){
+        for (d in details){
+            if(req.body.readMore == d){
+                app.get("/",function(request,respond){
+                    respond.render('blog', {d:d, c:details[d]});
+                })   
+            }
+        } 
+    })
 })
 app.get("/new",function(req,res){
     res.render('newblog', {});

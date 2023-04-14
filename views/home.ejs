@@ -11,7 +11,11 @@
       <p class="col-md-8 fs-4"><%= detailsObejct[x] %></p>
       <div class="row">
         <div class="col-md-6">
-          <button class="btn btn-dark btn-lg" type="button">Read More</button>
+          <form action="" method="post">
+                <button class="btn btn-dark btn-lg" type="submit" name="readMore" value = <%= x %>>
+                  Read More
+                </button>
+              </form>  
         </div>
         <div class="col-md-6 text-end">
           <p><i>Date</i></p>
@@ -29,9 +33,11 @@
           <p class="fs-5"><%= detailsObejct[x] %></p>
           <div class="row">
             <div class="col-md-6">
-              <button class="btn btn-dark btn-lg" type="button">
-                Read More
-              </button>
+              <form action="" method="post">
+                <button class="btn btn-dark btn-lg" type="submit" name="readMore" value = <%= x %>>
+                  Read More
+                </button>
+              </form>
             </div>
             <div class="col-md-6 text-end">
               <p><i>Date</i></p>

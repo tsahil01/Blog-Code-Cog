@@ -2,7 +2,10 @@
 // module.exports is a js object (like JSON)
 // module.exports has shortcut ---> module.exprots = exports
 
-const x = {};
+const x = {
+    "S":"t",
+    "A":"q"
+};
 exports.pushData = function(heading, content){
     x[heading] = content;
     // return  x;
