@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const data = require(__dirname + '/data.js');
+const _ = require("lodash");
 
 const app = express();
 app.set('view engine', 'ejs'); // telling our app to use ejs. And we have to store it in views
@@ -10,19 +11,27 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public")); // to use css and other things
 
 
+let details = data.getData();
+let detailsKey = Object.keys(details);
+let detailsKeyLowercase = detailsKey.map(word => word.toLowerCase());
+
+
 app.get("/",function(req,res){
-    let details = data.getData();
-    res.render('home', {detailsObejct: details});
-    
-    app.post("/",function(req,res){
-        for (d in details){
-            if(req.body.readMore == d){
-                app.get("/",function(request,respond){
-                    respond.render('blog', {d:d, c:details[d]});
-                })   
-            }
-        } 
-    })
+    res.render('home', {detailsObejct: details}); //sends JS object to home 
+    // console.log(details);
+    // console.log(detailsKeyLowercase);
+
+    if (Object.keys(details).length === 0 && details.constructor === Object){
+        app.post("/",function(request,response){response.redirect('new')})
+        console.log("QAZXSW")
+    }
+    else{
+        app.post("/",function(request,response){
+            // res.render('blog',{h: req.body.head, c:req.body.con})
+            console.log(req.body.con);
+            console.log(req.body.head);
+        })
+    }
 })
 app.get("/new",function(req,res){
     res.render('newblog', {});
@@ -31,8 +40,11 @@ app.get("/new",function(req,res){
         res.redirect("/");
     })
 })
-app.get("/blogname",function(req,res){
-    res.render('blog', {});
+app.get("/posts/:postName",function(req,res){
+    var requestedHeading = _.lowerCase(req.params.postName)
+    if(detailsKeyLowercase.includes(requestedHeading)){
+        res.render('blog', {title: _.startCase(req.params.postName), content: details[_.startCase(req.params.postName)]});
+    } 
 })
 
 

@@ -4,7 +4,8 @@
 
 const x = {
     "S":"t",
-    "A":"q"
+    "A":"q",
+    "Random Post":"Lorem ipsum ipsum"
 };
 exports.pushData = function(heading, content){
     x[heading] = content;
