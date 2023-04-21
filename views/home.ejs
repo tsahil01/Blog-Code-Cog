@@ -16,23 +16,23 @@
       </div>
     </div>
   </div>
-  <% }else{ %> <% for(x in detailsObejct){ %> <% flag++; var content = detailsObejct[x].substring(0,100) %> 
-  <% if(flag==1 || flag==4 || flag==7){ %>
+  <% }else{ %> <% for(x in detailsObejct){ %> <% flag++; var content =
+  detailsObejct[x].substring(0,140) %> <% if(flag==1 || flag==4 || flag==7){ %>
 
   <div class="p-4 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-4 fw-bold" name="heading"><%= x %></h1>
+    <div class="container-fluid py-5">
+      <h1 class="display-4 fw-bold" name="heading"><%= x %></h1>
 
-        <p class="col-md-8 fs-4" name="content"><%= content %>... </p>
-        <div class="row">
-          <div class="col-md-6">
-          <a href="/posts/:lorem-ipsum" class="btn btn-dark btn-lg">Read More</a>
-          </div>
-          <div class="col-md-6 text-end">
-            <p><i>Date</i></p>
-          </div>
+      <p class="col-md-8 fs-4" name="content"><%= content %>...</p>
+      <div class="row">
+        <div class="col-md-6">
+          <a href="/posts/<%=x%>" class="btn btn-dark btn-lg">Read More</a>
+        </div>
+        <div class="col-md-6 text-end invisible">
+          <p><i>Date</i></p>
         </div>
       </div>
+    </div>
   </div>
 
   <% } else{ %> <% if(flag == 2 || flag==5 || flag == 8){ %>
@@ -41,16 +41,16 @@
     <div class="col-md-6">
       <div class="p-2 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid py-5">
-          <h1 class="display-4 fw-bold" name="heading"><%= x %> </h1>
-          <p class="fs-5" name="content"> <%= content %>...</p>
+          <h1 class="display-4 fw-bold" name="heading"><%= x %></h1>
+          <p class="fs-5" name="content"><%= content %>...</p>
           <div class="row">
             <div class="col-md-6">
-              <a href="/new" class="btn btn-dark btn-lg">Read More</a>
-              </div>
-              <div class="col-md-6 text-end">
-                <p><i>Date</i></p>
-              </div>
+              <a href="/posts/<%=x%>" class="btn btn-dark btn-lg">Read More</a>
             </div>
+            <div class="col-md-6 text-end invisible">
+              <p><i>Date</i></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
