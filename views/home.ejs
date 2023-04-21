@@ -2,60 +2,55 @@
 
 <main>
   <% var flag=0; %> <% if (Object.keys(detailsObejct).length === 0){ %>
-    <div class="p-4 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-4 fw-bold">Let's Start with your first blog.</h1>
-        <div class="row">
-          <div class="col-md-6">
-            <form action="" method="post">
-                  <button class="btn btn-dark btn-lg" type="submit">
-                    Create a new blog
-                  </button>
-            </form>  
-          </div>
-        </div>
-      </div>
-    </div>
-  <% }else{ %> <% for(x in detailsObejct){ %> <% flag++; %> <% if(flag==1 ||
-  flag==4 || flag==7){ %>
   <div class="p-4 mb-4 bg-body-tertiary rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-4 fw-bold" name =<%= x %>><%= x %></h1>
-      <p class="col-md-8 fs-4" name =<%= detailsObejct[x] %>><%= detailsObejct[x] %></p>
+      <h1 class="display-4 fw-bold">Let's Start with your first blog.</h1>
       <div class="row">
         <div class="col-md-6">
-          <form action="" method="post">
-                <button class="btn btn-dark btn-lg" type="submit">
-                  Read More
-                </button>
-              </form>  
-        </div>
-        <div class="col-md-6 text-end">
-          <p><i>Date</i></p>
+          <form action="/" method="post">
+            <button class="btn btn-dark btn-lg" type="submit">
+              Create a new blog
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+  <% }else{ %> <% for(x in detailsObejct){ %> <% flag++; var content = detailsObejct[x].substring(0,100) %> 
+  <% if(flag==1 || flag==4 || flag==7){ %>
+
+  <div class="p-4 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-4 fw-bold" name="heading"><%= x %></h1>
+
+        <p class="col-md-8 fs-4" name="content"><%= content %>... </p>
+        <div class="row">
+          <div class="col-md-6">
+          <a href="/posts/:lorem-ipsum" class="btn btn-dark btn-lg">Read More</a>
+          </div>
+          <div class="col-md-6 text-end">
+            <p><i>Date</i></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
   <% } else{ %> <% if(flag == 2 || flag==5 || flag == 8){ %>
   <div class="row align-items-md-stretch">
     <% } %>
     <div class="col-md-6">
       <div class="p-2 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid py-5">
-          <h1 class="display-4 fw-bold"><%= x %></h1>
-          <p class="fs-5"><%= detailsObejct[x] %></p>
+          <h1 class="display-4 fw-bold" name="heading"><%= x %> </h1>
+          <p class="fs-5" name="content"> <%= content %>...</p>
           <div class="row">
             <div class="col-md-6">
-              <form action="" method="post">
-                <button class="btn btn-dark btn-lg" type="submit" name="readMore" value = <%= x %>>
-                  Read More
-                </button>
-              </form>
+              <a href="/new" class="btn btn-dark btn-lg">Read More</a>
+              </div>
+              <div class="col-md-6 text-end">
+                <p><i>Date</i></p>
+              </div>
             </div>
-            <div class="col-md-6 text-end">
-              <p><i>Date</i></p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

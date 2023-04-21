@@ -3,9 +3,6 @@
 // module.exports has shortcut ---> module.exprots = exports
 
 const x = {
-    "S":"t",
-    "A":"q",
-    "Random Post":"Lorem ipsum ipsum"
 };
 exports.pushData = function(heading, content){
     x[heading] = content;
