@@ -1,10 +1,10 @@
-# 📝 My Blog
+# 📝 Code Cog
 
 A simple blog built with Express.js, EJS, and Body Parser. 
 
 ## 🚀 Installation
 
-1. Clone the repository: ``
+1. Clone the repository: `git clone https://github.com/tsahil01/Blog-Code-Cog.git`
 2. Install the dependencies: `npm install`
 
 ## 💻 Usage
